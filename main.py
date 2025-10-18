@@ -104,8 +104,8 @@ if __name__ == "__main__":
             speedup = args.sequential_time / total_time
             efficiency = speedup / (size * args.num_procs)
         else:
-            speedup = None
-            efficiency = None
+            speedup = 1.0
+            efficiency = 1.0
 
         print("\n===== HASIL EKSPERIMEN PARALLEL IMAGE PROCESSOR =====")
         print(f"Jumlah gambar       : {num_images}")
@@ -116,11 +116,8 @@ if __name__ == "__main__":
         print(f"Waktu eksekusi total: {total_time:.4f} detik")
         print(f"Throughput          : {throughput:.2f} gambar/detik")
 
-        if speedup:
-            print(f"Speedup             : {speedup:.2f}x")
-            print(f"Efisiensi           : {efficiency*100:.2f}%")
-
-        print("=====================================================\n")
-        print("Contoh hasil analisis:")
-        for r in flat_results[:5]:
-            print(f"{r['filename']:<20} | {r['resolution']:<10} | RGB mean: {r['mean_rgb']}")
+        nama = "Diva Marshelano Ardentinnova Suhartanto"
+        nim = "237006041"
+        print(f"Hybrid Project by: {nama} ({nim})")
+        print(f"Threads: {args.num_threads} | Processes: {args.num_procs} | Data: {num_images}")
+        print(f"Total Time: {total_time:.2f} s | Speedup: {speedup:.1f} | Efficiency: {efficiency*100:.1f}%")
